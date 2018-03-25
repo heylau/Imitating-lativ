@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        lativ
+    </title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="thirdParty/jquery-2.0.0.js"></script>
+    <script src="thirdParty/template-web.js"></script>
+    <script src="js/store.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/buyCar.css">
+    <style>
+        #productDetail{
+            width: 480px;
+            height: 520px;
+            padding-top: 20px;
+            padding-left:20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .productImgBox{
+            float: left;
+            width: 500px;
+            height: 500px;
+            display: inline-block;
+            position: relative;
+        }
+
+        #mask{
+            cursor: move;
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+            left: 0;
+            top: 0;
+            position: absolute;
+            display: none;
+            text-align: center;
+        }
+
+
+
+        #productDetail .title{
+            font-weight: 600;
+            font-size: 16px;
+            color: #666;
+        }
+
+        #productDetail .num{
+            font-size: 11px;
+            margin-top: 15px;
+            color: #838383;
+        }
+
+        .selectedBtn{
+            border: 1px solid #000;;
+        }
+
+        #productDetail .price{
+            font-weight:500;
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            font-size: 48px;
+            color: #EB2D39;
+        }
+
+        #productDetail .line{
+            width: 450px;
+            height: 1px;
+            background-color: #EEE;
+            margin-top: 45px;
+        }
+
+        #productDetail .priceIcon{
+            font-size: 17px;
+            position: absolute;
+            top: 10px;
+            left: -10px;
+
+        }
+
+        #productDetail .color button{
+            margin-top: 30px;
+            width: 34px;
+            height: 34px;
+            padding: 1px;
+            margin-left: 10px;
+
+        }
+        #productDetail .color img{
+            width: 28px;
+            height: 28px;
+        }
+
+        #productDetail .sizeBox{
+            width: 100%;
+            height: 80px;
+        }
+
+        #productDetail .size{
+            float: left;
+            margin-left: 10px;
+            display: block;
+            margin-top: 30px;
+            padding: 5px;
+            background-color: #E7E7E7;
+            color: #898989;
+        }
+
+        .cshBtns button{
+            margin-left:30px;
+            border: none;
+            line-height: 27px;
+        }
+
+        #productDetail .hollowBtn{
+            height: 27px;
+            overflow: hidden;
+        }
+
+        .cshBtns span{
+            margin-left: 5px;
+            color: #B0B0B0;
+            font-size: 11px;
+            /*background-color: #fff;*/
+
+        }
+
+        .cshBtns{
+            text-align: right;
+            margin-top: 10px;
+            width: 100%;
+            /*background-color: #fff;*/
+        }
+
+        .count{
+            font-size: 0;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+
+
+        .countInput{
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 14px;
+            width: 30px !important;
+            height: 30px !important;
+
+        }
+
+        .count label{
+            color: #757575;
+            font-size: 13px;
+            margin-right: 10px;
+        }
+
+        .count img{
+            cursor: pointer;
+        }
+
+        .addShop{
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 40px;
+            background: url("images/btn_addshoppingcart.gif") no-repeat 28% 50%;
+            width: 185px;
+            height: 30px;
+            box-sizing: content-box;
+            position: relative;
+            color: #FFF;
+            line-height: 32px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .bottomMenu{
+            margin-top: 40px;
+        }
+
+
+        .bottomMenu span{
+            color: #5D3C27;
+            padding-left: 25px;
+            font-size: 11px;
+            position: relative;
+
+        }
+        .bottomMenu .ems{
+            background: url(images/countIcon.gif) no-repeat 0 -15px;
+        }
+
+        .bottomMenu .seventDay{
+            background: url(images/countIcon.gif) no-repeat 0 -45px;
+        }
+
+        .bottomMenu .sf{
+            background: url(images/countIcon.gif) no-repeat 0 -75px;
+        }
+
+        .bottomMenu .pay{
+            background: url(images/countIcon.gif) no-repeat 0 -105px;
+        }
+
+
+        .wechatApp{
+            margin-top: 30px;
+            font-size: 11px;
+            color: red;
+
+        }
+
+
+        .bigPics{
+            float: right;
+            margin-top: 50px;
+        }
+
+        .bigPics img{
+            margin-top: 30px;
+            width: 1010px;
+        }
+
+        #maskBox{
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: rgba(0,0,0,0.5);
+            text-align: center;
+            display: none;
+        }
+        #maskBox img{
+            margin-top: 10%;
+
+            height: 80%;
+        }
+
+
+        #maskBox span{
+            position: absolute;
+            width: 34px;
+            height: 58px;
+        }
+
+        #maskBox .forward{
+
+            background: url("images/fancy_back.png");
+        }
+        #maskBox .next{
+
+            background: url("images/fancy_forward.png");
+        }
+        #maskBox .close{
+            width: 40px;
+            height: 40px;
+            background: url("images/fancy_close.png");
+        }
+    </style>
+</head>
+<body>
+<div id="buyCar">
+    <span class="count">2
+    </span>
+    <span class="buyCarIcon"></span>
+</div>
+<div id="backToTop">
+    <span id="backIcon"></span>
+</div>
+<div id="maskBox">
+
+    <img src="images/3503601_1500.jpg" alt="">
+    <span class="forward"></span>
+    <span class="next"></span>
+    <span class="close"></span>
+</div>
+<div id="wrap">
+    <div class="navWrap w clear-fix">
+        <div class="logo">
+            <a href="#" id="logo"><img src="images/logo.png" alt="店铺logo"></a>
+        </div>
+        <div id="nav">
+            <ul>
+                <li class="WOMEN"><a href="#">女装</a></li>
+                <li class="MEN"><a href="#">男装</a></li>
+                <li class="KIDS"><a href="#">童装</a></li>
+                <li class="BABY"><a href="#">婴幼儿</a></li>
+                <li class="SPORTS"><a href="#">运动</a></li>
+            </ul>
+        </div>
+        <div id="navUtilities">
+            <form action="" method="get" id="search-form" autocomplete="off">
+                <input id="keyWord" maxlength="100" name="keyWord" type="text" value="" placeholder="请输入关键字">
+                <input type="hidden" id="defaultTip" value="请输入关键词">
+                <input type="hidden" id="defaultKeyword" value="">
+                <input type="submit" class="search-btn" value="">
+            </form>
+        </div>
+        <div id="head">
+            <ul>
+                <li>
+                    <a href="#">下载APP</a>
+                    <div class="app-downarea">
+                        <div class="downImgArea">
+                            <img src="images/App_download.gif" alt="">
+                        </div>
+                        <img src="images/up.png" alt="">
+                    </div>
+                </li>
+                <li><a href="#">会员登录</a></li>
+                <li id="cart"><a href="#">
+                    <span>1</span>
+                    个商品
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="middle" class="clear-fix">
+    <div id="sidenav" class="grid_9 alpha">
+        <ul class="sale">
+            <li><a href="#">
+                <h2>男装上新 &amp; 爆款</h2></a>
+            </li>
+            <li class="menu_onsale">
+                <ul class="sub ">
+                    <li><a href="#" target="_blank">印花精选．2件88折</a></li>
+                    <li><a href="#" target="_blank">初春推荐．65折起</a></li>
+                    <li><a href="#" target="_blank">限时特惠．2件￥78</a></li>
+                    <li><a href="#" target="_blank">断码特惠．低至￥25</a></li>
+                    <li><a href="#" target="_blank">优选推荐．2件85折</a></li>
+                    <li><a href="#" target="_blank">清新活力．低至￥29</a></li>
+                    <li><a href="#" target="_blank">舒适打底．2件优惠</a></li>
+
+                </ul>
+            </li>
+
+            <li class="category ">
+                <h2>上装类</h2>
+                <ul class="sale_category">
+                    <li><a  href="#" >印花短T恤</a></li>
+                    <li><a  href="#" >印花长T恤</a></li>
+                    <li><a  href="#" >短袖/背心</a></li>
+                    <li><a  href="#" >七分/长袖</a></li>
+                    <li><a  href="#" >POLO衫</a></li>
+                    <li><a  href="#" >卫衣系列</a></li>
+                </ul>
+            </li><li class="category category_sub category_open">
+            <h2>衬衫类</h2>
+            <ul class="sale_category">
+                <li><a  href="#" >休闲衬衫</a></li>
+                <li><a  href="#" >商务衬衫</a></li>
+                <li><a  href="#" >法兰绒衬衫</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>针织衫</h2>
+            <ul class="sale_category">
+                <li><a href="#">针织/毛衣</a></li>
+                <li><a  href="#" >美利奴系列</a></li>
+                <li><a href="#">羊绒系列</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>外套类</h2>
+            <ul class="sale_category">
+                <li><a href="#" >休闲外套</a></li>
+                <li><a href="#" >机能外套</a></li>
+                <li><a  href="#">轻型羽绒</a></li>
+                <li><a href="#" >保暖羽绒</a></li>
+                <li><a href="#" >西装/大衣</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>裤装</h2>
+            <ul class="sale_category">
+                <li><a  href="#" >中/短裤</a></li>
+                <li><a  href="#" >牛仔裤</a></li>
+                <li><a href="#" >长裤</a></li>
+                <li><a  href="#" >束脚裤</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>家居&amp;内着</h2>
+            <ul class="sale_category">
+                <li><a  href="#" >内衣</a></li>
+                <li><a href="#">轻凉系列</a></li>
+                <li><a  href="#" >舒暖衣</a></li>
+                <li><a  href="#" >内裤</a></li>
+                <li><a  href="#" >袜子</a></li>
+                <li><a  href="#" >家居服</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>配件</h2>
+            <ul class="sale_category">
+                <li><a href="#" >腰带</a></li>
+                <li><a href="#">鞋类</a></li>
+                <li><a  href="#" >围巾</a></li>
+                <li><a href="#" >帽子/手套</a></li>
+            </ul></li>
+        </ul>
+    </div>
+    <img src="" alt="" id="categoryLogo">
+    <div id="main"></div>
+
+</div>
+<script type="text/html" id="productD">
+    <div class="productImgBox">
+        <img src="<%=productImgSrc%>" alt="" class="productImg" >
+    </div>
+    <div id="productDetail">
+        <span class="title"><%=title%>（<%=colorName%>-M）</span>
+        <p class="num"><span >商品编号：<%=productID%></span></p>
+        <span class="price"><span class="priceIcon">¥</span><%=price%></span>
+        <p class="line"></p>
+
+        <div class="color"></div>
+        <div class="sizeBox"></div>
+        <div class="cshBtns">
+            <button class="commentBtn"><img src="images/icon_comment.png" alt=""><span>评价 (8)</span></button>
+            <button class="sizeBtn"><img src="images/icon_size.png" alt=""><span>产品说明与尺码表</span></button>
+            <button class="hollowBtn"><img src="images/star_hollow.png" alt=""><span>收藏商品</span></button>
+        </div>
+        <p class="line"></p>
+
+                <span class="count">
+                    <label>数量</label>
+                    <img href="" class="minus" src="images/normalMinus.png">
+                    <input type="text" class="countInput"  value="121">
+                    <img href="" class="plus" src="images/normalPlus.png">
+                </span>
+        <button class="addShop">加入购物车</button>
+
+        <div class="bottomMenu">
+            <span class="ems">满99包邮</span>
+            <span class="seventDay">7天无理由退货</span>
+            <span class="sf">顺丰配送</span>
+            <span class="pay">微信支付．支付宝</span>
+        </div>
+
+        <p class="wechatApp">APP/小程序下单，退货补贴10元运费券</p>
+
+        <div class="bigPics">
+            <img src="images/ITS_CN_0.jpg" alt="">
+            <img src="images/water_CN.gif" alt="">
+        </div>
+    </div>
+</script>
+<script src="thirdParty/postbird-img-glass.js"></script>
+
+<script>
+
+    var lativ = 'https://www.lativ.com';
+
+
+    function getId() {
+        var url = location.search;
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                var id = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return id;
+    }
+
+    var newId = getId().split('?')[0];
+    var category = getId().split('?')[1];
+    var page = 0;
+    var dataArr = [];
+    var result;
+    var productImgIndex = 0;
+    var productImgLength = 0;
+
+
+    getdataN();
+    function getdataN(){
+        $.getJSON('lativ.php', {type:'category',name:category,page:page}, function(data) {
+            page++;
+            $.each(data,function(k,v){
+                dataArr.push(v);
+            });
+            if(page >2){
+                for(var i=0;i<dataArr.length;i++){
+                    if(dataArr[i]['Col'][0]['Sn'].substr(0,5) == newId){
+                        update(dataArr[i]);
+
+                    }
+                }
+
+            }
+
+            getdataN();
+        });
+    }
+
+
+
+
+    function update(data){
+        console.log(data);
+        $.getJSON('lativ.php',{type:category,id:newId},function(res){
+            res = JSON.parse(res);
+            for(var i=0;i<res.length;i++){
+                if(JSON.parse(res[i]['info'])[0]['ItemList'][0]['sn'].substr(0, 5) == newId){
+                    result = (JSON.parse(res[i]['info']));
+                };
+
+            }
+            console.log(result);
+            productImgLength = result.length;
+            var productID = data['Col'][0]['Sn'];
+            var productImgSrc = lativ + result[0]['ItemList'][0]['img280'];
+            var colorName = result[0]['color'];
+
+
+
+            var productD = template('productD',{
+                title:data['ProductName']
+                ,productID:productID
+                ,productImgSrc:productImgSrc
+                ,colorName : colorName
+                ,price:data['Price']
+            });
+
+
+            $('#main').append(productD);
+
+
+
+
+
+
+            if(data['OutfitPic']){
+                for(var i=0;i<data['OutfitPic'].length;i++){
+
+                    var img = $('<img>');
+                    img.attr('src',lativ+data['OutfitPic'][i]);
+                    $('.bigPics').prepend(img);
+                }
+            }
+
+            for (var i=0;i<result.length;i++){
+                var bigImg = $('<img>');
+                bigImg.attr('src',lativ+result[i]['ItemList'][0]['img900']);
+                $('.bigPics').append(bigImg);
+
+
+                var img = $('<img>').attr('src','https://s1.lativ.com' + result[i]['colorImg']);
+                var btn = $('<button></button>').append(img);
+                $('.color').append(btn);
+            }
+
+            for(var i=0;i<result[0]['ItemList'].length;i++)
+            {
+
+                $('.sizeBox').append($('<button class="size">'+result[0]['ItemList'][i]['體型尺寸']+'</button>'));
+            }
+
+
+
+        });
+    }
+
+
+    $('#main').on('click','.color button',function(){
+        $(this).addClass('selectedBtn').siblings().removeClass('selectedBtn');
+        $('.productImg').attr('src',lativ + result[$(this).index()]['ItemList'][0]['img280']);
+        productImgIndex = $(this).index();
+    }).on('click','.size',function(){
+        $(this).addClass('selectedBtn').siblings().removeClass('selectedBtn');
+    }).on('click','.minus',function(){
+        if($('.countInput').val()==0){
+            $('.countInput').val(0);
+            return;
+        }
+        $('.countInput').val($('.countInput').val() * 1 - 1);
+    }).on('click','.plus',function(){
+        $('.countInput').val($('.countInput').val() * 1 +1);
+    }).on('click','.productImgBox',function(){
+        $('#maskBox').fadeIn();
+        $('#maskBox img').attr('src',lativ + result[productImgIndex]['ItemList'][0]['img900'])
+        $('#maskBox .next').css({
+            left:$('#maskBox img').offset().left + $('#maskBox img').width() - 34
+            ,top:$('#maskBox img').offset().top +  $('#maskBox img').height() *.5
+
+        }).click(function(){
+            if(productImgIndex >= productImgLength){
+                productImgIndex = 0;
+            }
+            $('#maskBox img').attr('src',lativ + result[productImgIndex++]['ItemList'][0]['img900']);
+            return false;
+        });
+
+        $('#maskBox .forward').css({
+            left:$('#maskBox img').offset().left
+            ,top:$('#maskBox img').offset().top +  $('#maskBox img').height() *.5
+        }).click(function(){
+            if(productImgIndex <= 0){
+                productImgIndex = productImgLength - 1;
+            }
+            $('#maskBox img').attr('src',lativ + result[productImgIndex--]['ItemList'][0]['img900']);
+            return false;
+        });
+
+        $('#maskBox .close').css({
+            left:$('#maskBox img').offset().left + $('#maskBox img').width() - 40
+            ,top:$('#maskBox img').offset().top
+        });
+    }).on('click','.hollowBtn', function () {
+        $(this).find('img').css({
+            left: 426,
+            top: 246
+        })
+    });
+
+
+    $('#nav li').click(function(){
+                window.location.href='category.html?id='+this.className;
+            }
+    )
+
+    $('#logo').click(function(){
+        window.location.href = 'index.html';
+    });
+
+
+    $('#maskBox img').click(function(){
+
+        return false;
+    });
+
+    $('#maskBox').click(function(){
+        $(this).fadeOut();
+    });
+
+
+    $('#backToTop').click(function(){
+        $('body,html').animate({
+            scrollTop:'0px'
+        },600)
+    });
+
+    $(window).on('scroll',function () {
+        if($(document).scrollTop()>=150){
+
+            $('#backToTop').css('display','block');
+
+        }else{
+            $('#backToTop').css('display','none');
+
+        }
+    });
+
+
+
+
+</script>
+</body>
+</html>
+
+

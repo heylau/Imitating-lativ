@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        lativ
+    </title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="thirdParty/jquery-2.0.0.js"></script>
+    <script src="thirdParty/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="thirdParty/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="thirdParty/template-web.js"></script>
+    <script src="thirdParty/jquery.lazyload.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/buyCar.css">
+</head>
+<body>
+
+<div id="buyCar">
+    <span class="count">2
+    </span>
+    <span class="buyCarIcon"></span>
+</div>
+<div id="backToTop">
+    <span id="backIcon"></span>
+</div>
+<div id="wrap">
+    <div class="navWrap w clear-fix">
+        <div class="logo">
+            <a href="#" id="logo"><img src="images/logo.png" alt="店铺logo"></a>
+        </div>
+        <div id="nav">
+            <ul>
+                <li class="WOMEN"><a href="#">女装</a></li>
+                <li class="MEN"><a href="#">男装</a></li>
+                <li class="KIDS"><a href="#">童装</a></li>
+                <li class="BABY"><a href="#">婴幼儿</a></li>
+                <li class="SPORTS"><a href="#">运动</a></li>
+            </ul>
+        </div>
+        <div id="navUtilities">
+            <form action="" method="get" id="search-form" autocomplete="off">
+                <input id="keyWord" maxlength="100" name="keyWord" type="text" value="" placeholder="请输入关键字">
+                <input type="hidden" id="defaultTip" value="请输入关键词">
+                <input type="hidden" id="defaultKeyword" value="">
+                <input type="submit" class="search-btn" value="">
+            </form>
+        </div>
+        <div id="head">
+            <ul>
+                <li>
+                    <a href="#">下载APP</a>
+                    <div class="app-downarea">
+                        <div class="downImgArea">
+                            <img src="images/App_download.gif" alt="">
+                        </div>
+                        <img src="images/up.png" alt="">
+                    </div>
+                </li>
+                <li><a href="#">会员登录</a></li>
+                <li id="cart"><a href="#">
+                    <span>1</span>
+                    个商品
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="middle" class="clear-fix">
+    <div id="sidenav" class="grid_9 alpha">
+        <ul class="sale">
+            <li><a href="#">
+                <h2>男装上新 &amp; 爆款</h2></a>
+            </li>
+            <li class="menu_onsale">
+                <ul class="sub ">
+                    <li><a href="#" target="_blank">印花精选．2件88折</a></li>
+                    <li><a href="#" target="_blank">初春推荐．65折起</a></li>
+                    <li><a href="#" target="_blank">限时特惠．2件￥78</a></li>
+                    <li><a href="#" target="_blank">断码特惠．低至￥25</a></li>
+                    <li><a href="#" target="_blank">优选推荐．2件85折</a></li>
+                    <li><a href="#" target="_blank">清新活力．低至￥29</a></li>
+                    <li><a href="#" target="_blank">舒适打底．2件优惠</a></li>
+
+                </ul>
+            </li>
+
+            <li class="category ">
+                <h2>上装类</h2>
+                <ul class="sale_category">
+                    <li><a  href="#" >印花短T恤</a></li>
+                    <li><a  href="#" >印花长T恤</a></li>
+                    <li><a  href="#" >短袖/背心</a></li>
+                    <li><a  href="#" >七分/长袖</a></li>
+                    <li><a  href="#" >POLO衫</a></li>
+                    <li><a  href="#" >卫衣系列</a></li>
+                </ul>
+            </li><li class="category category_sub category_open">
+            <h2>衬衫类</h2>
+            <ul class="sale_category">
+                <li><a  href="#" >休闲衬衫</a></li>
+                <li><a  href="#" >商务衬衫</a></li>
+                <li><a  href="#" >法兰绒衬衫</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>针织衫</h2>
+            <ul class="sale_category">
+                <li><a href="#">针织/毛衣</a></li>
+                <li><a  href="#" >美利奴系列</a></li>
+                <li><a href="#">羊绒系列</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>外套类</h2>
+            <ul class="sale_category">
+                <li><a href="#" >休闲外套</a></li>
+                <li><a href="#" >机能外套</a></li>
+                <li><a  href="#">轻型羽绒</a></li>
+                <li><a href="#" >保暖羽绒</a></li>
+                <li><a href="#" >西装/大衣</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>裤装</h2>
+            <ul class="sale_category">
+                <li><a  href="#" >中/短裤</a></li>
+                <li><a  href="#" >牛仔裤</a></li>
+                <li><a href="#" >长裤</a></li>
+                <li><a  href="#" >束脚裤</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>家居&amp;内着</h2>
+            <ul class="sale_category">
+                <li><a  href="#" >内衣</a></li>
+                <li><a href="#">轻凉系列</a></li>
+                <li><a  href="#" >舒暖衣</a></li>
+                <li><a  href="#" >内裤</a></li>
+                <li><a  href="#" >袜子</a></li>
+                <li><a  href="#" >家居服</a></li>
+            </ul>
+        </li><li class="category category_sub category_open">
+            <h2>配件</h2>
+            <ul class="sale_category">
+                <li><a href="#" >腰带</a></li>
+                <li><a href="#">鞋类</a></li>
+                <li><a  href="#" >围巾</a></li>
+                <li><a href="#" >帽子/手套</a></li>
+            </ul></li>
+        </ul>
+    </div>
+    <img src="" alt="" id="categoryLogo">
+    <div id="main">
+
+    </div>
+</div>
+
+</body>
+<script type="text/html" id="item">
+    <div  class="productBox item" productId="<%=productId%>">
+        <img data-original="<%=imgUrl%>"/>
+        <%for (var i = 0; i < sizeObj.length; i++) {%>
+            <span class="size">
+                <%=sizeObj[i].Size%>
+            </span>
+        <%}%>
+        <p class="title"><%=title%></p>
+        <span class="price"><%=price%></span>
+    </div>
+</script>
+
+<script>
+
+    $(function(){
+
+        var titles = [];
+        function getId() {
+            var url = location.search;
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    var id = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return id;
+        }
+
+        $('#categoryLogo').attr('src','images/'+getId()+'.jpg');
+
+        var lativ = 'https://www.lativ.com';
+        getData(0);
+        getData(1);
+        getData(2);
+
+
+        function getData(pageIndex){
+            $.getJSON('lativ.php', {type:'category',name:getId(),page:pageIndex}, function(data){
+                nowData = data;
+                $.each(data,function(key,v){
+                    titles.push(v);
+                    var itemContent = template('item',
+                            {
+                                id: key,
+                                sizeObj: v['Col'],
+                                imgUrl: lativ + v['image_140'],
+                                title: v['ProductName'],
+                                price: '¥ '+ v['Price'],
+                                productId:v['Col'][0]['Sn'].substr(0,5)
+                            }
+                    );
+                    $('#main').append(itemContent);
+
+                });
+
+                setTimeout(function(){
+                    $("img").lazyload({effect: "fadeIn"});
+                },100)
+            });
+        }
+
+
+
+        $("#main").on('click', '.productBox', function(){
+
+            var index = $(this).index();
+            window.open('detail.html?id='+$(this).attr('productId') + '?' + getId());
+        });
+
+        $('#nav li').click(function(){
+
+                    window.location.href='category.html?id='+this.className;
+                }
+        )
+
+        $('.logo').click(function(){
+                    window.location.href = 'index.html';
+        })
+
+
+
+
+    })
+
+
+    $('#backToTop').click(function(){
+        $('body,html').animate({
+            scrollTop:'0px'
+        },600)
+    });
+
+    $(window).on('scroll',function () {
+        if($(document).scrollTop()>=150){
+
+            $('#backToTop').css('display','block');
+
+        }else{
+            $('#backToTop').css('display','none');
+
+        }
+    });
+
+
+
+
+</script>
+</html>
