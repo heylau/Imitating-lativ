@@ -1,0 +1,10 @@
+allow_url_fopen = Off
+allow_url_include = Off
+改成
+allow_url_fopen = On
+allow_url_include = On
+重启php-fpm或者重启web服务。
+如果还是无法解决　的话
+windows下处理方法：
+c:\windows\php.ini
+extension=php_openssl.dll 把前的;去掉，重启iis服务。
