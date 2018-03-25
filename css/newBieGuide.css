@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+body {
+    min-width: 1250px;
+    box-sizing: border-box;
+}
+
+/* 内容 */
+
+#content {
+    width: 1180px;
+    height: auto;
+    padding: 15px 0;
+    margin: 0 auto;
+    /*background-color: #ff0;*/
+    position: relative;
+    /*border-bottom: 1px solid #c0c0c0;*/
+}
+
+/*清浮*/
+#content.clear-fix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+.clear-fix {
+    zoom:1;
+}
+
+/* 内容 -侧栏- */
+#content ul.sideBar {
+    width: 165px;
+    height: 380px;
+    position: absolute;
+    left: 0;
+    top:15px;
+    /*background-color: #f00;*/
+}
+
+#content ul.sideBar li.sideBar-top,li.sideBar-bottom {
+    width: 145px;
+    height: 180px;
+    /*background-color: #f0f;*/
+    font-size: 12px;
+    padding: 3px 0;
+}
+
+#content ul.sideBar li.sideBar-bottom{
+    padding-top:10px;
+}
+
+#content ul.sideBar li {
+    padding: 3px 0;
+}
+
+#content ul.sideBar li.sideBar-top {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#content ul.sideBar h2 {
+    padding: 0 0 3px 10px;
+    background: url("../images/sidenav_h2icon.gif") no-repeat 0 8px transparent;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #555;
+}
+
+#content ul.sideBar ul li a {
+    padding: 0 0 3px 10px;
+    background: url("../images/sidenav_list_icon.gif") no-repeat 0 5px transparent;
+    color:#4d494a;
+    line-height: 1.7;
+}
+
+#content ul.sideBar a:hover {
+    color:#bb9064;
+    text-decoration: underline;
+}
+
+#content ul.sideBar a.current {
+    color:#bb9064;
+}
+
+/* 内容-主要-*/
+#content .main-content {
+    /*1010*484*/
+    float: right;
+    width: 1010px;
+    height: 100%;
+    /*background-color: #ffa500;*/
+}
+
+#content .detail-faq-list {
+    padding-top: 20px;
+}
+
+#content .detail-faq-list li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+#content .detail-faq-list li>span {
+    display: inline-block;
+    color:#4b4b4b;
+    padding-left: 20px;
+    background: url("../images/icon_open.gif") no-repeat 0 3px transparent;
+    cursor: pointer;
+}
+
+#content .detail-faq-list .active {
+    color:#83511c;
+    background: url("../images/icon_close.gif") no-repeat 0 3px transparent;
+}
+
+#content .detail-faq-list .faq-content {
+    margin: 10px 0 30px 20px;
+    color:#4b4b4b;
+    display: none;
+}
+
+#content .detail-faq-list .faq-content a {
+    color:#83521e;
+    text-decoration: underline;
+}
+
+#content .detail-faq-list .faq-content a:hover {
+    color:#706e6c;
+}
+
+#content .faq-content p span {
+    color:#b22222;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+
+.item img{
+    width: 100%;
+}
+#main{
+    display: inline-block;
+    width: 1010px;
+    float: right;
+    height: 520px;
+}
+#main .item{
+    width: 220px;
+    height: 225px;
+    margin-top: 60px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+}
+
+.item .size{
+    margin-left: 10px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #ccc;
+    color: white;
+    font-size:11px;
+}
+
+.item .title,.price{
+    font-size:10px;
+    color: darkgrey;
+    margin-top: 10px;
+}
+
+#middle{
+    width: 1180px;
+    margin: 20px auto;
+    position: relative;
+}
+#categoryLogo{
+}
+
+#sidenav{
+    width: 165px;
+    /*height: 100%;*/
+    float: left;
+    display: inline-block;
+}
+#sidenav ul {
+    margin: 20px 0;
+    list-style: none;
+}
+
+#sidenav li {
+    margin-top: 10px;
+}
+#sidenav .sale a{
+    color: #635F60;
+    font-size: 11px;
+}
+#sidenav .menu_onsale a{
+    color: #946B42;
+}
+
+#sidenav h2{
+    font-size:13px;
+}
+
+#sidenav .sale_category li,.sub{
+    list-style-image:url("../images/sidenav_list_icon.gif");
+}
+

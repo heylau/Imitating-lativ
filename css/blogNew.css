@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+body {
+    min-width: 1250px;
+    box-sizing: border-box;
+}
+
+
+/* 内容 */
+
+#content {
+    width: 1180px;
+    height: 1295px;
+    /*padding: 15px 40px;*/
+    margin: 0 auto;
+    /*background-color: #ff0;*/
+    position: relative;
+    /*border-bottom: 1px solid #c0c0c0;*/
+}
+
+#content .content-title {
+    width: 1150px;
+    height: 37px;
+    line-height: 37px;
+    padding: 20px 15px 10px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 25px;
+    color: #474747;
+}
+
+#content .content-list {
+    width: 1020px;
+    height: 1110px;
+    margin: 0 auto;
+    /*background-color: #f00;*/
+}
+
+#content .content-list ul.clear-fix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+.clear-fix {
+    zoom:1;
+}
+
+#content .content-list ul li {
+    width: 280px;
+    height: 340px;
+    padding: 0 30px;
+    margin-top: 30px;
+    float:left;
+}
+
+#content .content-list .list-img {
+    position: relative;
+    width: 280px;
+    height: 200px;
+    padding-bottom:15px;
+    /*overflow: hidden;*/
+}
+
+#content .content-list .box-img {
+    width: 280px;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+/* 图片放大 */
+
+#content .content-list .box-img:hover .scale-img{
+    transition: all 1s;
+    /*-moz-transform: scale(1.07);*/
+    /*-o-transform: scale(1.07);*/
+    /*-webkit-transform: scale(1.07);*/
+    transform: scale(1.07);
+}
+
+#content .content-list .list-img .date {
+    position: absolute;
+    top: 189px;
+    left: 50%;
+    margin-left: -40px;
+    padding: 5px 0;
+    border: 1px solid #eee;
+    display: inline-block;
+    width: 80px;
+    height: 14px;
+    text-align: center;
+    font-size: 12px;
+    color:#bbb;
+    background-color: #fff;
+}
+
+#content .content-list .list_info {
+    width: 280px;
+    height: 125px;
+    /* background-color: lightcyan; */
+}
+#content .content-list .list_info a {
+    color: #555;
+}
+
+#content .content-list .list_info a{
+    display: block;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+#content .content-list .list_info a.list-title {
+    font-size: 16px;
+    line-height: 40px;
+}
+
+
+#content .content-bottom {
+    text-align: center;
+}
+
+#content .content-bottom .line {
+    margin: 0 auto 50px;
+}
+
+#content .content-bottom .section-bottom  {
+    /*padding-top: 50px;*/
+    margin: 60px auto;
+    font-size: 18px;
+    color:#555;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

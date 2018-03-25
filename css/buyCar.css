@@ -1,0 +1,39 @@
+
+#buyCar{
+    cursor: pointer;
+    width: 25px;
+    height: 137px;
+    position: fixed;
+    top:50%;
+    margin-top: -68px;
+    right: 80px;
+    background: url("../images/addshopcart_bg.gif");
+}
+
+#buyCar .count{
+    position: absolute;
+    color: #f00;
+    width: 24px;
+    right: -7px;
+    top: 65px;
+    font-size:11px;
+}
+#buyCar .buyCarIcon{
+    cursor: pointer;
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    width: 19px;
+    height: 35px;
+    background: url("../images/btn_addshopcart_s.gif");
+}
+
+#backIcon{
+    cursor: pointer;
+    position: fixed;
+    bottom: 20%;
+    right: 80px;
+    width: 25px;
+    height: 60px;
+    background: url("../images/btn_top.gif");
+}
